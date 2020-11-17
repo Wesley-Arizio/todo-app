@@ -25,7 +25,7 @@ Navegar até o diretório - (server)
 
 Navegar até o diretório - (web)
 
-    cd todo-app/server
+    cd todo-app/web
 
 Ambos usam os mesmos comandos para instalar dependencias e levantar o servidor.
 
