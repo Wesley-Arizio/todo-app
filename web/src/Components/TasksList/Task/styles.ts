@@ -22,7 +22,7 @@ export const TaskContainer = styled.div`
         padding:  10px 20px;
     }
 
-    img {
+    img + img{
         margin:  10px 20px;
     }
 `;

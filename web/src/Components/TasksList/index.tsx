@@ -1,5 +1,7 @@
 import React from 'react';
-import { useQuery, gql } from '@apollo/client';
+
+import { useQuery } from '@apollo/client';
+import { GET_TASKS } from '../../graphql/query/index'
 
 import { TaskInterface } from '../../types';
 
@@ -7,16 +9,6 @@ import Task from './Task';
 
 import { Container } from './styles';
 
-const GET_TASKS = gql`
-  query getTasks {
-    tasks {
-      _id
-      title
-      description
-      status
-    }
-  }
-`;
 
 const TasksList: React.FC = () => {
   const { loading, error, data } = useQuery(GET_TASKS);

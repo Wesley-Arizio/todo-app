@@ -1,39 +1,12 @@
 import React, {useState, FormEvent} from 'react';
-import { gql, useMutation } from '@apollo/client';
+
+import { useMutation } from '@apollo/client';
+import { GET_TASKS } from '../../graphql/query/index'
+import { CREATE_TASK } from '../../graphql/mutation/index';
 
 import { Container, Button, ContainerStatus } from './styles';
 
 type Status = 'To Do' | 'Doing' | 'Done';
-
-const CREATE_TASK = gql`
-  mutation createTask(
-    $title: String!
-    $description: String!
-    $status: String!
-  ){
-    createTask(data: {
-      title: $title,
-      description: $description,
-      status: $status
-    }) { 
-      title
-      description
-      status
-    }
-  }
-`;
-
-const GET_TASKS = gql`
-  query getTasks {
-    tasks {
-      _id
-      title
-      description
-      status
-    }
-  }
-`;
-
 
 const CreateTask: React.FC = () => {
   const [title, setTitle] = useState<string>('');
