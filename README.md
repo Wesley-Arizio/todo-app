@@ -19,9 +19,15 @@ Clonar o repositório
 
     git clone https://github.com/Wesley-Arizio/todo-app.git
 
-Navegar até o diretório
+Navegar até o diretório - (server)
 
-    cd todo-app
+    cd todo-app/server
+
+Navegar até o diretório - (web)
+
+    cd todo-app/server
+
+Ambos usam os mesmos comandos para instalar dependencias e levantar o servidor.
 
 Instalar dependencias
 
