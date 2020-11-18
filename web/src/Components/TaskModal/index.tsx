@@ -20,6 +20,13 @@ interface Props extends TaskInterface{
 
 const TaskModal = ({ isOpen, _id, title, description, status }: Props) => {
   const [showModal, setShowModal] = useState(isOpen);
+  const currentColor = 
+    status === 'To Do' 
+      ? '#FFCFAE'
+      : status === 'Doing' 
+      ? '#FEEFA7'
+      : '#D6FCAD'
+  
 
   if(showModal) {
     return (
@@ -30,15 +37,15 @@ const TaskModal = ({ isOpen, _id, title, description, status }: Props) => {
             <div
               className="circle-status"
               style={{ 
-                background: 
-                  status === 'To Do' 
-                  ? '#FFCFAE' 
-                  : status === 'Doing'
-                  ? '#FEEFA7' : '#D6FCAD'
+                background: currentColor
               }}
 
             ></div>
-            <p>{status}</p>
+            <p
+              style={{ 
+                color: currentColor
+              }}
+            >{status}</p>
           </StatusCircle>
           <img 
             src={closeIcon} 
