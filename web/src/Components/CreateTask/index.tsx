@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/client';
 import { GET_TASKS } from '../../graphql/query/index'
 import { CREATE_TASK } from '../../graphql/mutation/index';
 
-import { Container, Button, ContainerStatus } from './styles';
+import { Container, Button, ContainerStatus, Title } from './styles';
 
 type Status = 'To Do' | 'Doing' | 'Done';
 
@@ -38,6 +38,9 @@ const CreateTask: React.FC = () => {
   return (
     <Container>
       <form onSubmit={handleSubmit}>
+        <Title>
+          To Do List
+        </Title>
         <input 
           type="text"
           name="task-title" 

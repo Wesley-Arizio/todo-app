@@ -37,9 +37,6 @@ export const Container = styled.div`
         color: black;
         margin-top: 20px;
     }
-
-
-
 `;
 
 export const Button = styled.button`
@@ -89,4 +86,10 @@ export const ContainerStatus = styled.div`
             margin: 10px 0px;
         }
     }
+`;
+
+export const Title = styled.h1`
+    width: 100%;
+    margin: 10px 0;
+    text-align: left;
 `;
