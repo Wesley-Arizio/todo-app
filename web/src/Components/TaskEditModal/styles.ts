@@ -92,6 +92,10 @@ export const Label = styled.label`
         color: black;
         margin-top: 20px;
         border: 1px solid #000;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 `;
 
