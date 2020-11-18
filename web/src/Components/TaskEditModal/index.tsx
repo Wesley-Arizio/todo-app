@@ -41,11 +41,18 @@ const TaskEditModal = ({ isOpen, _id, title, description, status }: Props) => {
     event.preventDefault();
     updateTask({
       variables: {
-        id: _id,
+          id: _id,
           title: task.title,
           description: task.description,
           status: task.status
       }
+    });
+
+    setTask({
+      _id: '',
+      title: '',
+      description: '',
+      status: ''
     });
 
     setShowModal(!showModal)
