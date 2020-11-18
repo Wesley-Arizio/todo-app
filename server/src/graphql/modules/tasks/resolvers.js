@@ -15,7 +15,7 @@ export default {
         },
 
         updateTask: async (_, {id, data}) => {
-            return Task.findOneAndUpdate(id, data, {new: true});
+            return await Task.findByIdAndUpdate(id, data, {new: true});
         },
 
         deleteTask: async (_, { id }) => {
