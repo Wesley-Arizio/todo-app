@@ -4,7 +4,8 @@ import mongoose from 'mongoose';
 function setUpServer({typeDefs, resolvers}){
     mongoose.connect('mongodb://localhost:27017/todo-app', {
         useNewUrlParser: true,
-        useUnifiedTopology: true
+        useUnifiedTopology: true,
+        useFindAndModify: false
     })
 
     const server = new ApolloServer({typeDefs, resolvers});
