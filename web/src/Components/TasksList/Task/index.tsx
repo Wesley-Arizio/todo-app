@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useMutation } from '@apollo/client';
 import { GET_TASKS } from '../../../graphql/query/index'
@@ -22,7 +22,15 @@ const Task = ({_id, title, description, status}: TaskInterface) => {
   const [deleteTask] = useMutation(REMOVE_ITEM, {
     refetchQueries: () =>[{query: GET_TASKS}]
   });
-  
+
+  function closeModal(){
+    setShowModal(!showModal)
+  }
+
+  function closeModalEdit(){
+    setShowEditModal(!showEditModal)
+  }
+
   return (
     <>
       <TaskContainer
@@ -56,12 +64,14 @@ const Task = ({_id, title, description, status}: TaskInterface) => {
             title={title}
             description={description}
             status={status}
+            closeModal={closeModal}
           />
           ) : null
       }
       {
         showEditModal ? (
           <TaskEditModal
+            closeModal={closeModalEdit}
             isOpen={showEditModal}
             _id={_id}
             title={title}

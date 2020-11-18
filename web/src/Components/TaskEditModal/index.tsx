@@ -20,10 +20,11 @@ import { TaskInterface } from '../../types';
 import { FormEvent } from 'react';
 
 interface Props extends TaskInterface{
-  isOpen: boolean
+  isOpen: boolean,
+  closeModal(): void
 } 
 
-const TaskEditModal = ({ isOpen, _id, title, description, status }: Props) => {
+const TaskEditModal = ({ isOpen, _id, title, description, status, closeModal }: Props) => {
   const [showModal, setShowModal] = useState(isOpen);
 
   const [updateTask] = useMutation(UPDATE_TASK ,{
@@ -66,7 +67,7 @@ const TaskEditModal = ({ isOpen, _id, title, description, status }: Props) => {
           <img 
             src={closeIcon} 
             alt="X icon to close modal"
-            onClick={() => setShowModal(!showModal)}
+            onClick={() => closeModal()}
             />
         </ContainerButtonClose>
         <Form onSubmit={handleSubmit}>

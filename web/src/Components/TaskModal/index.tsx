@@ -15,10 +15,11 @@ import closeIcon from '../../assets/close-icon.svg';
 import { TaskInterface } from '../../types';
 
 interface Props extends TaskInterface{
-  isOpen: boolean
+  isOpen: boolean,
+  closeModal(): void
 } 
 
-const TaskModal = ({ isOpen, _id, title, description, status }: Props) => {
+const TaskModal = ({ isOpen, _id, title, description, status, closeModal }: Props) => {
   const [showModal, setShowModal] = useState(isOpen);
   const currentColor = 
     status === 'To Do' 
@@ -50,7 +51,7 @@ const TaskModal = ({ isOpen, _id, title, description, status }: Props) => {
           <img 
             src={closeIcon} 
             alt="X icon to close modal"
-            onClick={() => setShowModal(!showModal)}
+            onClick={() => closeModal()}
             />
         </ContainerButtonClose>
 
